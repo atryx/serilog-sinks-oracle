@@ -1,5 +1,5 @@
 ﻿using Serilog.Formatting;
-using Serilog.Sinks.MSSqlServer.Configuration.Factories;
+using Serilog.Sinks.Oracle.Configuration.Factories;
 using Serilog.Sinks.Oracle;
 
 namespace Serilog.Configuration.Extensions;

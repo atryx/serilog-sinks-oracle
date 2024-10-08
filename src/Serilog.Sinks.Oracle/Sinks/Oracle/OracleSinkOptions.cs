@@ -2,13 +2,13 @@
 public class OracleSinkOptions
 {
     /// <summary>
-    /// Initializes a new <see cref="MSSqlServerSinkOptions"/> instance with default values.
+    /// Initializes a new <see cref="OracleServerSinkOptions"/> instance with default values.
     /// </summary>
     public OracleSinkOptions()
     {
-        SchemaName = MSSqlServerSink.DefaultSchemaName;
-        BatchPostingLimit = MSSqlServerSink.DefaultBatchPostingLimit;
-        BatchPeriod = MSSqlServerSink.DefaultPeriod;
+        SchemaName = OracleSink.DefaultSchemaName;
+        BatchPostingLimit = OracleSink.DefaultBatchPostingLimit;
+        BatchPeriod = OracleSink.DefaultPeriod;
         EagerlyEmitFirstEvent = true;
         UseSqlBulkCopy = true;
     }

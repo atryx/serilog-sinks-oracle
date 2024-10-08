@@ -1,7 +1,6 @@
 ﻿using Serilog.Formatting;
-using Serilog.Sinks.Oracle;
 
-namespace Serilog.Sinks.MSSqlServer.Configuration.Factories
+namespace Serilog.Sinks.Oracle.Configuration.Factories
 {
     internal class OracleSinkFactory : IOracleSinkFactory
     {

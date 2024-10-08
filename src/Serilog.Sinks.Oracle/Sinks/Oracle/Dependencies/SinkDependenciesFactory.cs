@@ -1,7 +1,8 @@
 ﻿using System;
 using Serilog.Formatting;
-using Serilog.Sinks.MSSqlServer.Output;
+using Serilog.Sinks.Oracle.Output;
 using Serilog.Sinks.Oracle.Platform;
+using Serilog.Sinks.Oracle.Platform.SqlClient;
 
 namespace Serilog.Sinks.Oracle.Dependencies;
 
@@ -19,21 +20,21 @@ internal static class SinkDependenciesFactory
 
         // Add 'Enlist=false', so that ambient transactions (TransactionScope) will not affect/rollback logging
         // unless sink option EnlistInTransaction is set to true.
-        var sqlConnectionStringBuilderWrapper = new SqlConnectionStringBuilderWrapper(
+        var sqlConnectionStringBuilderWrapper = new OracleConnectionStringBuilderWrapper(
             connectionString, sinkOptions.EnlistInTransaction);
         var sqlConnectionFactory = new SqlConnectionFactory(sqlConnectionStringBuilderWrapper);
         var dataTableCreator = new DataTableCreator(sinkOptions.TableName, columnOptions);
         var sqlCreateTableWriter = new SqlCreateTableWriter(sinkOptions.SchemaName,
             sinkOptions.TableName, columnOptions, dataTableCreator);
 
-        var sqlConnectionStringBuilderWrapperNoDb = new SqlConnectionStringBuilderWrapper(
+        var sqlConnectionStringBuilderWrapperNoDb = new OracleConnectionStringBuilderWrapper(
             connectionString, sinkOptions.EnlistInTransaction)
         {
-            InitialCatalog = ""
+            DataSource = ""
         };
         var sqlConnectionFactoryNoDb =
             new SqlConnectionFactory(sqlConnectionStringBuilderWrapperNoDb);
-        var sqlCreateDatabaseWriter = new SqlCreateDatabaseWriter(sqlConnectionStringBuilderWrapper.InitialCatalog);
+        var sqlCreateDatabaseWriter = new SqlCreateDatabaseWriter(sqlConnectionStringBuilderWrapper.DataSource);
 
         var logEventDataGenerator =
             new LogEventDataGenerator(columnOptions,
