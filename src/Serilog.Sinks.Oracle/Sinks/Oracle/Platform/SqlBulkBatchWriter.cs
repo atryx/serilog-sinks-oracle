@@ -7,7 +7,6 @@ namespace Serilog.Sinks.Oracle.Platform;
 internal class SqlBulkBatchWriter : ISqlBulkBatchWriter
 {
     private readonly string _tableName;
-    private readonly string _schemaName;
     private readonly ISqlConnectionFactory _sqlConnectionFactory;
     private readonly ILogEventDataGenerator _logEventDataGenerator;
 
@@ -19,7 +18,6 @@ internal class SqlBulkBatchWriter : ISqlBulkBatchWriter
         ILogEventDataGenerator logEventDataGenerator)
     {
         _tableName = tableName ?? throw new ArgumentNullException(nameof(tableName));
-        _schemaName = schemaName ?? throw new ArgumentNullException(nameof(schemaName));
         _sqlConnectionFactory = sqlConnectionFactory ?? throw new ArgumentNullException(nameof(sqlConnectionFactory));
         _logEventDataGenerator = logEventDataGenerator ?? throw new ArgumentNullException(nameof(logEventDataGenerator));
     }
@@ -33,7 +31,7 @@ internal class SqlBulkBatchWriter : ISqlBulkBatchWriter
             using (var cn = _sqlConnectionFactory.Create())
             {
                 await cn.OpenAsync().ConfigureAwait(false);
-                using (var copy = cn.CreateSqlBulkCopy(string.Format(CultureInfo.InvariantCulture, "[{0}].[{1}]", _schemaName, _tableName)))
+                using (var copy = cn.CreateSqlBulkCopy(string.Format(CultureInfo.InvariantCulture, "{0}", _tableName)))
                 {
                     foreach (var column in dataTable.Columns)
                     {

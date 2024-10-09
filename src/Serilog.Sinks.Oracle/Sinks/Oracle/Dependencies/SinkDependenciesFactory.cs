@@ -34,7 +34,6 @@ internal static class SinkDependenciesFactory
         };
         var sqlConnectionFactoryNoDb =
             new SqlConnectionFactory(sqlConnectionStringBuilderWrapperNoDb);
-        var sqlCreateDatabaseWriter = new SqlCreateDatabaseWriter(sqlConnectionStringBuilderWrapper.DataSource);
 
         var logEventDataGenerator =
             new LogEventDataGenerator(columnOptions,
@@ -48,8 +47,6 @@ internal static class SinkDependenciesFactory
         var sinkDependencies = new SinkDependencies
         {
             DataTableCreator = dataTableCreator,
-            SqlDatabaseCreator = new SqlDatabaseCreator(
-                sqlCreateDatabaseWriter, sqlConnectionFactoryNoDb),
             SqlTableCreator = new SqlTableCreator(
                 sqlCreateTableWriter, sqlConnectionFactory),
             SqlBulkBatchWriter = sinkOptions.UseSqlBulkCopy

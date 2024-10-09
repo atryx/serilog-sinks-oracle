@@ -23,7 +23,7 @@ public enum StandardColumn
     /// <summary>
     /// The level of the event.
     /// </summary>
-    Level,
+    LogLevel,
 
     /// <summary>
     /// The OpenTelemetry trace id of the event.

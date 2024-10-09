@@ -102,10 +102,6 @@ public class OracleAuditSink : ILogEventSink, IDisposable
 
     private static void CreateDatabaseAndTable(OracleSinkOptions sinkOptions, SinkDependencies sinkDependencies)
     {
-        if (sinkOptions.AutoCreateSqlDatabase)
-        {
-            sinkDependencies.SqlDatabaseCreator.Execute();
-        }
 
         if (sinkOptions.AutoCreateSqlTable)
         {

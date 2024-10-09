@@ -88,8 +88,7 @@ public static class OracleDataTypes
             { typeof(TimeSpan), OracleDbType.IntervalDS },
             { typeof(byte), OracleDbType.Byte },
             { typeof(Guid), OracleDbType.Raw },
-            { typeof(string), OracleDbType.Char },
-            { typeof(string), OracleDbType.Varchar2 }
+            { typeof(char), OracleDbType.Char },
         };
 
     /// <summary>

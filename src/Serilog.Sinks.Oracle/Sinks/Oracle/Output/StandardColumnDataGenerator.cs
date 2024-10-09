@@ -43,8 +43,8 @@ internal class StandardColumnDataGenerator : IStandardColumnDataGenerator
                 return new KeyValuePair<string, object>(_columnOptions.Message.ColumnName, logEvent.RenderMessage(_formatProvider).TruncateOutput(_columnOptions.Message.DataLength));
             case StandardColumn.MessageTemplate:
                 return new KeyValuePair<string, object>(_columnOptions.MessageTemplate.ColumnName, logEvent.MessageTemplate.Text.TruncateOutput(_columnOptions.MessageTemplate.DataLength));
-            case StandardColumn.Level:
-                return new KeyValuePair<string, object>(_columnOptions.Level.ColumnName, _columnOptions.Level.StoreAsEnum ? (object)logEvent.Level : logEvent.Level.ToString());
+            case StandardColumn.LogLevel:
+                return new KeyValuePair<string, object>(_columnOptions.LogLevel.ColumnName, _columnOptions.LogLevel.StoreAsEnum ? (object)logEvent.Level : logEvent.Level.ToString());
             case StandardColumn.TraceId:
                 return new KeyValuePair<string, object>(_columnOptions.TraceId.ColumnName, logEvent.TraceId.ToString());
             case StandardColumn.SpanId:

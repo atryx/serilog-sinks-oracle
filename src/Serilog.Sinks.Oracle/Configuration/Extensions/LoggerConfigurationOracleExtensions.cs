@@ -10,7 +10,7 @@ public static class LoggerConfigurationPostgreSqlExtensions
         this LoggerSinkConfiguration loggerConfiguration,
         string connectionString,
         OracleSinkOptions sinkOptions = null,
-        IConfigurationSection sinkOptionSection = null,
+        IConfigurationSection sinkOptionsSection = null,
         IConfiguration appConfiguration = null,
         LogEventLevel restictredToMinimumLevel = LevelAlias.Minimum,
         IFormatProvider formatProvider = null,
@@ -21,7 +21,7 @@ public static class LoggerConfigurationPostgreSqlExtensions
         if (loggerConfiguration == null)
             throw new ArgumentNullException(nameof(loggerConfiguration));
 
-        ReadConfiguration(ref connectionString, ref sinkOptions, appConfiguration, ref columnOptions, columnOptionsSection, sinkOptionSection);
+        ReadConfiguration(ref connectionString, ref sinkOptions, appConfiguration, ref columnOptions, columnOptionsSection, sinkOptionsSection);
 
         IOracleSinkFactory sinkFactory = new OracleSinkFactory();
         var sink = sinkFactory.Create(connectionString, sinkOptions, formatProvider, columnOptions, logEventFormatter);

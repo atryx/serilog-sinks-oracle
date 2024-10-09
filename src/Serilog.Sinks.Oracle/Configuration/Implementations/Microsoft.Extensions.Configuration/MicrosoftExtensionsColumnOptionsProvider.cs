@@ -94,8 +94,8 @@ internal class MicrosoftExtensionsColumnOptionsProvider : IMicrosoftExtensionsCo
         section = config.GetSection("level");
         if (section != null)
         {
-            SetCommonColumnOptions(section, columnOptions.Level);
-            SetProperty.IfNotNull<bool>(section["storeAsEnum"], (val) => columnOptions.Level.StoreAsEnum = val);
+            SetCommonColumnOptions(section, columnOptions.LogLevel);
+            SetProperty.IfNotNull<bool>(section["storeAsEnum"], (val) => columnOptions.LogLevel.StoreAsEnum = val);
         }
 
         section = config.GetSection("properties");

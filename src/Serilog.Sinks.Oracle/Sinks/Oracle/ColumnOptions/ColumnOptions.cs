@@ -8,7 +8,7 @@ public partial class ColumnOptions
     public ColumnOptions()
     {
         Id = new IdColumnOptions();
-        Level = new LevelColumnOptions();
+        LogLevel = new LevelColumnOptions();
         TraceId = new TraceIdColumnOptions();
         SpanId = new SpanIdColumnOptions();
         Properties = new PropertiesColumnOptions();
@@ -23,7 +23,7 @@ public partial class ColumnOptions
                 StandardColumn.Id,
                 StandardColumn.Message,
                 StandardColumn.MessageTemplate,
-                StandardColumn.Level,
+                StandardColumn.LogLevel,
                 StandardColumn.TimeStamp,
                 StandardColumn.Exception,
                 StandardColumn.Properties
@@ -57,7 +57,7 @@ public partial class ColumnOptions
     public bool DisableTriggers { get; set; }
     public ICollection<OracleColumn> AdditionalColumns { get; set; }
     public IdColumnOptions Id { get; private set; }
-    public LevelColumnOptions Level { get; private set; }
+    public LevelColumnOptions LogLevel { get; private set; }
     public TraceIdColumnOptions TraceId { get; private set; }
     public SpanIdColumnOptions SpanId { get; private set; }
     public PropertiesColumnOptions Properties { get; private set; }
@@ -72,7 +72,7 @@ public partial class ColumnOptions
         switch (standardColumn)
         {
             case StandardColumn.Id: return Id;
-            case StandardColumn.Level: return Level;
+            case StandardColumn.LogLevel: return LogLevel;
             case StandardColumn.TraceId: return TraceId;
             case StandardColumn.SpanId: return SpanId;
             case StandardColumn.TimeStamp: return TimeStamp;

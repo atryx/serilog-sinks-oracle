@@ -93,7 +93,7 @@ internal class JsonLogEventFormatter : ITextFormatter
     private void WriteStandardColumns(LogEvent logEvent, TextWriter output, ref string precedingDelimiter)
     {
         WriteTimeStampIfPresent(logEvent, output, ref precedingDelimiter);
-        WriteIfPresent(StandardColumn.Level, logEvent, output, ref precedingDelimiter);
+        WriteIfPresent(StandardColumn.LogLevel, logEvent, output, ref precedingDelimiter);
         WriteIfPresent(StandardColumn.Message, logEvent, output, ref precedingDelimiter);
         WriteIfPresent(StandardColumn.MessageTemplate, logEvent, output, ref precedingDelimiter);
         if (logEvent.Exception != null) WriteIfPresent(StandardColumn.Exception, logEvent, output, ref precedingDelimiter);

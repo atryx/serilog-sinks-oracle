@@ -12,7 +12,7 @@ public class OracleSink : IBatchedLogEventSink, IDisposable
     /// <summary>
     /// The default database schema name.
     /// </summary>
-    public const string DefaultSchemaName = "dbo";
+    public const string DefaultSchemaName = "";
 
     /// <summary>
     /// A reasonable default for the number of events posted in each batch.
@@ -124,11 +124,6 @@ public class OracleSink : IBatchedLogEventSink, IDisposable
 
     private void CreateDatabaseAndTable(OracleSinkOptions sinkOptions, SinkDependencies sinkDependencies)
     {
-        if (sinkOptions.AutoCreateSqlDatabase)
-        {
-            sinkDependencies.SqlDatabaseCreator.Execute();
-        }
-
         if (sinkOptions.AutoCreateSqlTable)
         {
             sinkDependencies.SqlTableCreator.Execute();
