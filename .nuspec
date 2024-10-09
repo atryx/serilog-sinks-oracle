@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<package>
+  <metadata>
+    <id>Serilog.Sinks.Oracle.Alternative</id>
+    <version>1.0.0</version>
+    <authors>Mihai Lita</authors>
+    <owners>Mihai Lita</owners>
+    <licenseUrl>https://github.com/atryx/serilog-sinks-oracle/blob/main/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/atryx/serilog-sinks-oracle</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>A serilog sink that sends events to Oracle</description>
+    <tags>oracle;serilog;serilog-sinks;sink;log;logging;database</tags>
+  </metadata>
+</package>

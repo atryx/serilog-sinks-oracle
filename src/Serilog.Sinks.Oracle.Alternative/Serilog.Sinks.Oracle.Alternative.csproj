@@ -1,0 +1,39 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <AssemblyName>Serilog.Sinks.Oracle</AssemblyName>
+    <RootNamespace>Serilog</RootNamespace>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <PackageId>Serilog.Sinks.Oracle.Alternative</PackageId>
+    <Version>1.0.0</Version>
+    <Authors>Mihai Lita</Authors>
+    <Company>Mihai Lita</Company>
+    <Description>A serilog sink that sends events to Oracle</Description>
+    <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+    <RepositoryUrl>https://github.com/atryx/serilog-sinks-oracle</RepositoryUrl>
+    <PackageTags>oracle;serilog;serilog-sinks;sink;log;logging;database</PackageTags>
+    <PackageProjectUrl>https://github.com/atryx/serilog-sinks-oracle</PackageProjectUrl>
+    <Copyright>Copyright © Mihai Lita 2024</Copyright>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="8.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="8.0.0" />
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Oracle.ManagedDataAccess.Core" Version="23.6.0" />
+    <PackageReference Include="Serilog" Version="4.0.2" />
+    <PackageReference Include="Serilog.Sinks.PeriodicBatching" Version="5.0.0" />
+    <PackageReference Include="System.Globalization" Version="4.3.0" />
+  </ItemGroup>
+
+</Project>
