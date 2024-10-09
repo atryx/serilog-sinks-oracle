@@ -24,8 +24,7 @@ internal static class SinkDependenciesFactory
             connectionString, sinkOptions.EnlistInTransaction);
         var sqlConnectionFactory = new SqlConnectionFactory(sqlConnectionStringBuilderWrapper);
         var dataTableCreator = new DataTableCreator(sinkOptions.TableName, columnOptions);
-        var sqlCreateTableWriter = new SqlCreateTableWriter(sinkOptions.SchemaName,
-            sinkOptions.TableName, columnOptions, dataTableCreator);
+        var sqlCreateTableWriter = new SqlCreateTableWriter(sinkOptions.TableName, columnOptions, dataTableCreator);
 
         var sqlConnectionStringBuilderWrapperNoDb = new OracleConnectionStringBuilderWrapper(
             connectionString, sinkOptions.EnlistInTransaction)
@@ -51,14 +50,12 @@ internal static class SinkDependenciesFactory
                 sqlCreateTableWriter, sqlConnectionFactory),
             SqlBulkBatchWriter = sinkOptions.UseSqlBulkCopy
                 ? (ISqlBulkBatchWriter)new SqlBulkBatchWriter(
-                    sinkOptions.TableName, sinkOptions.SchemaName, columnOptions.DisableTriggers,
+                    sinkOptions.TableName, columnOptions.DisableTriggers,
                     sqlConnectionFactory, logEventDataGenerator)
                 : (ISqlBulkBatchWriter)new SqlInsertStatementWriter(
-                    sinkOptions.TableName, sinkOptions.SchemaName,
-                    sqlConnectionFactory, logEventDataGenerator),
+                    sinkOptions.TableName, sqlConnectionFactory, logEventDataGenerator),
             SqlLogEventWriter = new SqlInsertStatementWriter(
-                sinkOptions.TableName, sinkOptions.SchemaName,
-                sqlConnectionFactory, logEventDataGenerator)
+                sinkOptions.TableName,sqlConnectionFactory, logEventDataGenerator)
         };
 
         return sinkDependencies;

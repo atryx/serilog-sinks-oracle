@@ -20,7 +20,6 @@ internal class MicrosoftExtensionsSinkOptionsProvider : IMicrosoftExtensionsSink
     private static void ReadTableOptions(IConfigurationSection config, OracleSinkOptions sinkOptions)
     {
         SetProperty.IfNotNull<string>(config["tableName"], val => sinkOptions.TableName = val);
-        SetProperty.IfNotNull<string>(config["schemaName"], val => sinkOptions.SchemaName = val);
         SetProperty.IfNotNull<bool>(config["autoCreateSqlDatabase"], val => sinkOptions.AutoCreateSqlDatabase = val);
         SetProperty.IfNotNull<bool>(config["autoCreateSqlTable"], val => sinkOptions.AutoCreateSqlTable = val);
         SetProperty.IfNotNull<bool>(config["enlistInTransaction"], val => sinkOptions.EnlistInTransaction = val);

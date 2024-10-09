@@ -15,7 +15,7 @@ public partial class ColumnOptions // Standard Column options are inner classes 
         public LevelColumnOptions() : base()
         {
             StandardColumnIdentifier = StandardColumn.LogLevel;
-            DataType = OracleDbType.NVarchar2;
+            DataType = OracleDbType.Varchar2;
         }
 
         /// <summary>
@@ -42,7 +42,7 @@ public partial class ColumnOptions // Standard Column options are inner classes 
             get => (base.DataType == OracleDbType.Byte);
             set
             {
-                base.DataType = value ? OracleDbType.Byte : OracleDbType.NVarchar2;
+                base.DataType = value ? OracleDbType.Byte : OracleDbType.Varchar2;
             }
         }
     }

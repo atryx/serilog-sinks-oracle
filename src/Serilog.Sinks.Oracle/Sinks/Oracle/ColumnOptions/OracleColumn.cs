@@ -108,6 +108,14 @@ public class OracleColumn
         }
     }
 
+    public string DataTypeAsString {
+        get => OracleDataTypes.SystemTypeMap[DataType];
+        set
+        {
+            _propertyName = value;
+        }
+    }
+
     /// <summary>
     /// List of the hierachical parts of a property name and all sub properties (e.g. Property.Settings.EventName)
     /// </summary>
@@ -137,7 +145,7 @@ public class OracleColumn
         var dataColumn = new DataColumn
         {
             ColumnName = ColumnName,
-            DataType = OracleDataTypes.SystemTypeMap[DataType],
+            DataType = OracleDataTypes.OracleToCSharpTypeMap[DataType],
             AllowDBNull = AllowNull
         };
 

@@ -14,7 +14,7 @@ public partial class ColumnOptions // Standard Column options are inner classes 
         public LogEventColumnOptions() : base()
         {
             StandardColumnIdentifier = StandardColumn.LogEvent;
-            DataType = OracleDbType.NVarchar2;
+            DataType = OracleDbType.Varchar2;
         }
 
         /// <summary>

@@ -14,7 +14,7 @@ public partial class ColumnOptions // Standard Column options are inner classes 
         public PropertiesColumnOptions() : base()
         {
             StandardColumnIdentifier = StandardColumn.Properties;
-            DataType = OracleDbType.NVarchar2;
+            DataType = OracleDbType.Varchar2;
             DictionaryElementName = "dictionary";
             ItemElementName = "item";
             PropertyElementName = "property";
@@ -33,7 +33,7 @@ public partial class ColumnOptions // Standard Column options are inner classes 
             get => base.DataType;
             set
             {
-                if (value != OracleDbType.XmlType && value != OracleDbType.NVarchar2)
+                if (value != OracleDbType.XmlType && value != OracleDbType.Varchar2)
                     throw new ArgumentException("The Standard Column \"Properties\" must be of the NVarChar (recommended) or XML data types.");
                 base.DataType = value;
             }

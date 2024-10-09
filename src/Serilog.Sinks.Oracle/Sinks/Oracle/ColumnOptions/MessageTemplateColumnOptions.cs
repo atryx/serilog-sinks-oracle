@@ -14,7 +14,7 @@ public partial class ColumnOptions // Standard Column options are inner classes 
         public MessageTemplateColumnOptions() : base()
         {
             StandardColumnIdentifier = StandardColumn.MessageTemplate;
-            DataType = OracleDbType.NVarchar2;
+            DataType = OracleDbType.Clob;
         }
 
         /// <summary>

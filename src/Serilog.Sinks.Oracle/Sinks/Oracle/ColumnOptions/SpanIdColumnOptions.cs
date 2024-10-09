@@ -15,7 +15,7 @@ public partial class ColumnOptions // Standard Column options are inner classes 
         public SpanIdColumnOptions() : base()
         {
             StandardColumnIdentifier = StandardColumn.SpanId;
-            DataType = OracleDbType.NVarchar2;
+            DataType = OracleDbType.Varchar2;
         }
 
         /// <summary>

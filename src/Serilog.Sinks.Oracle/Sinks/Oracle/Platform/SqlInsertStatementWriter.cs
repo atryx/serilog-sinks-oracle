@@ -13,12 +13,10 @@ internal class SqlInsertStatementWriter : ISqlBulkBatchWriter, ISqlLogEventWrite
 
     public SqlInsertStatementWriter(
         string tableName,
-        string schemaName,
         ISqlConnectionFactory sqlConnectionFactory,
         ILogEventDataGenerator logEventDataGenerator)
     {
         _tableName = tableName ?? throw new ArgumentNullException(nameof(tableName));
-        _schemaName = schemaName ?? throw new ArgumentNullException(nameof(schemaName));
         _sqlConnectionFactory = sqlConnectionFactory ?? throw new ArgumentNullException(nameof(sqlConnectionFactory));
         _logEventDataGenerator = logEventDataGenerator ?? throw new ArgumentNullException(nameof(logEventDataGenerator));
     }
@@ -41,7 +39,7 @@ internal class SqlInsertStatementWriter : ISqlBulkBatchWriter, ISqlLogEventWrite
                     {
                         command.CommandType = CommandType.Text;
 
-                        var fieldList = new StringBuilder(Invariant($"INSERT INTO [{_schemaName}].[{_tableName}] ("));
+                        var fieldList = new StringBuilder(Invariant($"INSERT INTO {_tableName} ("));
                         var parameterList = new StringBuilder(") VALUES (");
 
                         var index = 0;

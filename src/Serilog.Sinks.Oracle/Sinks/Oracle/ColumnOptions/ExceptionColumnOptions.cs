@@ -14,7 +14,7 @@ public partial class ColumnOptions // Standard Column options are inner classes 
         public ExceptionColumnOptions() : base()
         {
             StandardColumnIdentifier = StandardColumn.Exception;
-            DataType = OracleDbType.NVarchar2;
+            DataType = OracleDbType.Varchar2;
         }
 
         /// <summary>

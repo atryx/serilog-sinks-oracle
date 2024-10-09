@@ -12,7 +12,6 @@ internal class SqlBulkBatchWriter : ISqlBulkBatchWriter
 
     public SqlBulkBatchWriter(
         string tableName,
-        string schemaName,
         bool disableTriggers,
         ISqlConnectionFactory sqlConnectionFactory,
         ILogEventDataGenerator logEventDataGenerator)

@@ -6,7 +6,6 @@ public class OracleSinkOptions
     /// </summary>
     public OracleSinkOptions()
     {
-        SchemaName = OracleSink.DefaultSchemaName;
         BatchPostingLimit = OracleSink.DefaultBatchPostingLimit;
         BatchPeriod = OracleSink.DefaultPeriod;
         EagerlyEmitFirstEvent = true;
@@ -24,18 +23,12 @@ public class OracleSinkOptions
         BatchPostingLimit = batchPostingLimit ?? BatchPostingLimit;
         BatchPeriod = batchPeriod ?? BatchPeriod;
         AutoCreateSqlTable = autoCreateSqlTable;
-        SchemaName = schemaName ?? SchemaName;
     }
 
     /// <summary>
     /// Name of the database table for writing the log events
     /// </summary>
     public string TableName { get; set; }
-
-    /// <summary>
-    /// Name of the database schema (default: "dbo")
-    /// </summary>
-    public string SchemaName { get; set; }
 
     /// <summary>
     /// Flag to automatically create the log events database if it does not exist (default: false)
